@@ -61,7 +61,7 @@ function ShoppingListCheckOffService() {
   var service = this;
 
   // List of shopping items
-  var itemsToBuy = [{name : 'cookie', quantity : 10},{name : 'chips', quantity : 5}];
+  var itemsToBuy = [{name : 'cookie', quantity : 10},{name : 'chips', quantity : 5},{name : 'apple', quantity : 5},{name : 'water', quantity : 5},{name : 'beer', quantity : 5}];
   var itemsBought = [];
 
   service.addItemToBuy = function (itemName, itemQuantity) {
@@ -94,5 +94,6 @@ function ShoppingListCheckOffService() {
     return itemsBought;
   };
 }
+
 
 })();
