@@ -1,0 +1,45 @@
+
+.emptyMessage {
+  font-weight: bold;
+  color: red;
+  font-size: 1.2em;
+}
+
+/* Rimuove margini predefiniti dalla lista e i pallini (bullets) */
+.custom-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px; /* Opzionale: limita la larghezza */
+    margin: 20px auto;
+    font-family: sans-serif;
+}
+
+/* Stile per ogni elemento della lista */
+.list-item {
+    display: flex; /* Attiva Flexbox */
+    justify-content: space-between; /* Spazio tra testo e bottoni */
+    align-items: center; /* Allinea verticalmente al centro */
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee; /* Linea di separazione */
+    background-color: #f9f9f9;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+/* Contenitore per i pulsanti a destra */
+.button-group {
+    display: flex;
+    gap: 10px; /* Spazio tra i due pulsanti */
+}
+
+/* Stile base dei pulsanti */
+.btn {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.btn-add { color: green }
+.btn-remove { color: red }

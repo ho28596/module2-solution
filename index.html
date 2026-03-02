@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListCheckOff'>
+  <head>
+    <meta charset="utf-8">
+	<script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+	<title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+  </head>
+<body>
+  <div class="container">
+  <h1>Shopping List Check Off</h1>
+
+  <div class="row">
+    <!-- ADD item to List -->
+    <div class="col-md-12" id="input" ng-controller='AddItemController as input'>
+		<h2>Add Item:</h2>
+		<input type="text" ng-model="input.inputName" placeholder="item name">
+		<input type="text" ng-model="input.inputQuantity" placeholder="quantity">
+		<button ng-click="input.addItem();">Add Item</button>
+    </div>
+	
+    <!-- To Buy List -->
+    <div class="col-md-6" id="list1" ng-controller='ToBuyController as list1'>
+		<h2>To Buy:</h2>
+		<ol class="custom-list">
+			<li ng-repeat="item in list1.items" class="list-item">
+				<span> {{ item.quantity }} of {{ item.name }} </span>
+				<div class="button-group">
+					<button class="btn btn-remove" ng-click="list1.removeItem($index);"><span class="glyphicon glyphicon-trash"></span>  Remove</button>
+					<button class="btn btn-add" ng-click="list1.buyItem($index);"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+				</div>	
+			</li>
+		</ol>
+		<div ng-if="list1.checkEndItemToBuy() == true" class="emptyMessage">Everything is bought!</div>
+    </div>
+
+    <!-- Already Bought List -->
+    <div class="col-md-6" id="list2" ng-controller='AlreadyBoughtController as list2'>
+		<div class="col-md-6">
+		<h2>Already Bought:</h2>
+		<ol class="custom-list">
+			<li ng-repeat="item in list2.items" class="list-item">
+				<span> {{ item.quantity }} of {{ item.name }} </span>
+				<div class="button-group">
+					<button class="btn btn-remove" ng-click="list2.removeItem($index);"><span class="glyphicon glyphicon-remove"></span> Yet to buy</button>
+				</div>	
+			</li>
+		</ol>
+		<div ng-if="list2.items.length == 0" class="emptyMessage">Nothing bought yet.</div>
+		</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
